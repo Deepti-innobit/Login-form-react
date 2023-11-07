@@ -1,11 +1,13 @@
-// import logo from 'logo1.jpeg';
-import Display from '../components/display';
+// import logo from './logo.svg';
+import './App.css';
+import Display from "./components/Display"
 
-
-const App = () =>{
+function App() {
+  
   return (
-   <Display/>
+    <Display />
   );
+  
 }
 
 export default App;
