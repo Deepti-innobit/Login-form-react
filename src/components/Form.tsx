@@ -1,10 +1,17 @@
+import React from "react";
 import "../Form.css";
-import Table from "./Table.js";
+// import Table from "./Table.js";
 
-export default function Form({onValChange,formInputData,handleSub}) {
+type Props = {
+    onValChange: any;
+    formInputData:any;
+    handleSub: any;
+  }
+//   export const Header: React.FC<Props> = ({text, color}) => {
+export const Form: React.FC<Props> = ({onValChange,formInputData,handleSub}) => {
     // console.log('props', props);
 
-   const handleSubmit=(e) => {
+   const handleSubmit=(e:any) => {
      
         e.preventDefault();
              
@@ -26,7 +33,9 @@ export default function Form({onValChange,formInputData,handleSub}) {
         // }
         
         // console.log(pass);
-        var regex= /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[formInputData0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
+
+
+        // var regex= /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[formInputData0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
         
        
 
@@ -45,47 +54,47 @@ export default function Form({onValChange,formInputData,handleSub}) {
     }
 
   return (
-   <>
+   <div>
     
-     <div class="main">
+     <div className="main">
        
-       <div class="container">
+       <div className="container">
        <div id="logo">
            <img src="logo1.jpeg" id="logo-img" alt="#"/>
        </div>
        <h3>Sign in with your account</h3>
        
-       <form action="" onsubmit={handleSubmit}>
-       <div class="name">
+       <form action="" onSubmit={handleSubmit}>
+       <div className="name">
            <label>Full Name: </label>
            <br/>
            <input type="text" id="name" name="name" onChange={onValChange} value={formInputData.name} placeholder="Enter your name" required/>
        </div>
        <br/>
-       <div class="address"/>
+       <div className="address"/>
            <label>Address: </label>
            <br/>
            <input type="text" name="address" onChange={onValChange} value={formInputData.address}  placeholder="Enter your Address" id="address"/>
        <div/>
        <br/>
-       <div class="gender">
+       <div className="gender">
            <label>Gender: </label>
            <br/>
-           <label for="male" >Male</label>
-           <input type="radio" onChange={onValChange} class="gender" id="male" value="male" name="gender"/>
+           <label htmlFor="male" >Male</label>
+           <input type="radio" onChange={onValChange} className="gender" id="male" value="male" name="gender"/>
            
-           <label for="female" >Female</label>
-           <input type="radio" onChange={onValChange} class="gender" id="female" value="female" name="gender"/>
+           <label htmlFor="female" >Female</label>
+           <input type="radio" onChange={onValChange} className="gender" id="female" value="female" name="gender"/>
            
        </div>
        <br/>
-       <div class="phone">
+       <div className="phone">
            <label>Phone Number: </label>
            <br/>
            <input type="number" name="phoneno" onChange={onValChange} value={formInputData.phoneno} placeholder="Enter your phone no" id="phone" required />
        </div>
        <br />
-       <div class="email">
+       <div className="email">
            <label>Email Id: </label>
            <br/>
            <input type="email" name="email" onChange={onValChange} value={formInputData.email} placeholder="Enter your Email Id" required/>
@@ -104,27 +113,27 @@ export default function Form({onValChange,formInputData,handleSub}) {
        </div>
 
        <br/>
-       <div class="education">
-           <label required>Mark your highest qualifications: </label>
+       <div className="education">
+           <label >Mark your highest qualifications: </label>
            <br/>
            <br/>
-           <div class="ptalign">
-           <label for="graduation">Graduation</label>
+           <div className="ptalign">
+           <label htmlFor="graduation">Graduation</label>
            <input type="radio" onChange={onValChange} id="graduation" value="graduation" name="education"/>
            </div>
            <br/>
-           <div class="ptalign">
-           <label for="high-school">High School</label>
+           <div className="ptalign">
+           <label htmlFor="high-school">High School</label>
            <input type="radio" onChange={onValChange} id="high-school" value="high-school" name="education"/>
            </div>
            <br/>
-           <div class="ptalign">
-           <label for="post-Graduation">Post-Graduation</label>
+           <div className="ptalign">
+           <label htmlFor="post-Graduation">Post-Graduation</label>
            <input type="radio" onChange={onValChange} id="post-Graduation" value="post-Graduation" name="education"/>
            </div>
            <br/>
-           <div class="ptalign">
-           <label for="phd">PHD</label>
+           <div className="ptalign">
+           <label htmlFor="phd">PHD</label>
            <input type="radio" onChange={onValChange} id="phd" value="phd" name="education"/>
            </div>
            <br/>
@@ -132,8 +141,8 @@ export default function Form({onValChange,formInputData,handleSub}) {
        <br/>
        <button type="submit" onClick={handleSubmit} id="submit" value="Submit">Submit
         </button>
-       <p            class="policy">Click to view <a href="#">Privacy Policy</a> and <a href="#">Terms of use </a> </p>
-       <div class="accountq">
+       <p            className="policy">Click to view <a href="#">Privacy Policy</a> and <a href="#">Terms of use </a> </p>
+       <div className="accountq">
         <hr/>   
        <p>New to family Pro health?</p>
        <hr/>  
@@ -146,6 +155,8 @@ export default function Form({onValChange,formInputData,handleSub}) {
            <a href="#" id="help">Help | Contact Us</a>
            <p>	&#169;2023 Family prohealth Inc. All rights reserved</p>
        </footer>
-   </>
+   </div>
   );
 }
+
+export default Form;

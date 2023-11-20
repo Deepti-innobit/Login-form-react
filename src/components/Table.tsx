@@ -1,6 +1,14 @@
+import React from "react";
 import "../Table.css";
 
-function Table({tableData}) {
+
+// export const Header: React.FC<Props> = ({text, color}) => {
+    type Props = {
+        tableData: any;
+        
+      }
+
+export const Table: React.FC<Props> = ({tableData}) => {
     console.log("dataprint",tableData);
     console.log(7);
     return(
@@ -20,7 +28,7 @@ function Table({tableData}) {
             <tbody>
             
     {     
-            tableData.map((Data)=>{
+            tableData.map((Data:any)=>{
                 console.log(Data,"data");
                 return(
             <tr>

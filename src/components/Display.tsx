@@ -3,8 +3,10 @@ import {useState} from "react";
 import Form from './Form';
 import Table from './Table';
 
-function Display(){
-    const[tableData,setTableData]=useState([]);
+
+
+function Display() {
+    const[tableData]=useState<any>([]);
     const[showtable,setShowtable]=useState(false);
     const[formInputData,setformInputData]=useState(
        {
@@ -19,7 +21,7 @@ function Display(){
     );
     
     
-    const onValChange=(evnt)=>{ 
+    const onValChange=(evnt:any)=>{ 
         console.log(evnt); 
        
       setformInputData({...formInputData,[evnt.target.name]:evnt.target.value})
@@ -51,14 +53,14 @@ function Display(){
     // console.log('forminput parent', tableData);
 
     return(
-<React.Fragment>
+<>
      
          {!showtable && <Form onValChange={onValChange} formInputData={formInputData} handleSub={handleSub}/>}
          
          {showtable && formInputData && <Table tableData={tableData}/>}
          
-   
-     </React.Fragment>
+    
+     </>
 
     );
 }
